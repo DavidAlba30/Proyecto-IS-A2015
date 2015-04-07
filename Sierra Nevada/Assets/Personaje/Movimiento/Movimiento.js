@@ -5,7 +5,7 @@ var speed : float = 1.0;
 
 
 function Start () {
-	anim = GetComponent("Animator");
+	anim = GetComponent(Animator);
 }
 
 function Update () {
@@ -22,6 +22,14 @@ function Update () {
 		anim.SetFloat("y", move_y);
 		
 		transform.position += new Vector3(move_x, 0, move_y).normalized * Time.deltaTime * speed;
+	}
+	
+	if(Input.GetKeyDown(KeyCode.Q)){
+		transform.rotation.eulerAngles += new Vector3(0,90,0);
+	}
+	
+	if(Input.GetKeyDown(KeyCode.E)){
+		transform.rotation.eulerAngles += new Vector3(0,-90,0);	
 	}
 
 }
