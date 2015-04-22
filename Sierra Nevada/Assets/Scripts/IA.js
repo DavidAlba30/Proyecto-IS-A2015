@@ -23,10 +23,13 @@ private var isAttacking : boolean = false;
 private var isAware : boolean = false;
 private var moveDirection : Vector3 = Vector3.zero;
 
+private var HP : float;
+
 
 function Start () {
 	anim = GetComponent("Animator");
 	attackTime = Time.time;
+	HP = 100;
 }
 
 function Update () {
@@ -115,5 +118,17 @@ function Chasing () {
 function Attacking () {
 		
 		Debug.Log("Gabriel atacado");
+}
+
+function OnMouseOver(){
+
+	target.GetComponent(Acciones).enemy = gameObject;
+}
+
+function hitHP(damage){
+	Debug.Log(HP);
+	
+	HP = HP - damage;
+
 }
 
